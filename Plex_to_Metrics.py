@@ -57,6 +57,7 @@ if __name__ == '__main__':
     start_http_server(8989)
 
     while True:
+        metric.clear()
         session_data = fetch_plex_sessions(os.getenv('PLEX_URL'),os.getenv('PLEX_PORT'),os.getenv('PLEX_API_TOKEN'))
         return_gauge_objs(session_data,metric)
         time.sleep(60 * 5)
